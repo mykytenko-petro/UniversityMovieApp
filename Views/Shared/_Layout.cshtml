@@ -1,0 +1,28 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        @RenderSection("Metadata", required: false)
+
+        <title>@ViewData["Title"]</title>
+
+        @* styles *@
+        <link rel="stylesheet" href="css/Shared/base.css">
+        <link rel="stylesheet" href="css/Shared/layout.css">
+        @RenderSection("Styles", required: false)
+    </head>
+    <body>
+        <header>
+            @RenderSection("Header", required: false)
+        </header>
+
+        <main>
+            @RenderBody()
+        </main>
+
+        @* scripts *@
+        <script type="module" src="js/bundle.js"></script>
+    </body>
+</html>

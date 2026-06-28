@@ -1,0 +1,13 @@
+# c#
+bin/
+obj/
+
+# node js
+node_modules/
+package-lock.json
+
+# compiled typescript bundle
+wwwroot/js/
+
+# editors
+.vscode/
