@@ -1,0 +1,30 @@
+:root {
+  --deep-twilight:     #03045eff;
+  --french-blue:       #023e8aff;
+  --bright-teal-blue:  #0077b6ff;
+  --blue-green:        #0096c7ff;
+  --turquoise-surf:    #00b4d8ff;
+  --sky-aqua:          #48cae4ff;
+  --frosted-blue:      #90e0efff;
+  --frosted-blue-2:    #ade8f4ff;
+  --light-cyan:        #caf0f8ff;
+  
+  /* Brand System */
+  --color-primary:       var(--bright-teal-blue);
+  --color-primary-hover: var(--french-blue);
+  --color-accent:        var(--turquoise-surf);
+  
+  /* Backgrounds & Surfaces */
+  --bg-app:              var(--light-cyan);       /* Main application background */
+  --bg-surface:          #ffffff;               /* Cards, modals, containers */
+  --bg-surface-variant:  var(--frosted-blue-2);   /* Secondary containers / table headers */
+
+  /* Text System */
+  --text-main:           var(--deep-twilight);    /* High contrast headings and body */
+  --text-muted:          var(--french-blue);      /* Secondary body text, captions */
+  --text-on-primary:     #ffffff;               /* Text when sitting on top of primary color */
+
+  /* Borders & Dividers */
+  --border-subtle:       var(--frosted-blue);
+  --border-strong:       var(--blue-green);
+}

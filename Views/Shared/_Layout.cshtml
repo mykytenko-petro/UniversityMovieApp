@@ -6,20 +6,29 @@
 
         @RenderSection("Metadata", required: false)
 
-        <title>@ViewData["Title"]</title>
+        <title>@ViewData["Title"] - UniversityMovieApp</title>
 
         @* styles *@
         <link rel="stylesheet" href="css/Shared/base.css">
         <link rel="stylesheet" href="css/Shared/layout.css">
+        <link rel="stylesheet" href="css/Shared/palette.css">
         @RenderSection("Styles", required: false)
     </head>
     <body>
-        <header>
-            @RenderSection("Header", required: false)
-        </header>
-
         <main>
-            @RenderBody()
+            <header>
+                <a href="/">
+                    <img src="icons/logo.svg" class="logo">
+                </a>
+            </header>
+
+            <div class="content">
+                @RenderBody()
+            </div>
+
+            <footer>
+                
+            </footer>
         </main>
 
         @* scripts *@
