@@ -9,5 +9,14 @@ package-lock.json
 # compiled typescript bundle
 wwwroot/js/
 
+# database
+*.db
+*.db-wal
+*.db-shm
+Migrations/
+
+# media (development)
+wwwroot/media/
+
 # editors
 .vscode/

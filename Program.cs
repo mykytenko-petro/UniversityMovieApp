@@ -1,10 +1,37 @@
+using Microsoft.EntityFrameworkCore;
+using UniversityMovieApp.Models;
+using UniversityMovieApp.Services;
+
 // services
 var builder = WebApplication.CreateBuilder(args);
 
+// template engine
 var mvcBuilder = builder.Services.AddControllersWithViews();
 if (builder.Environment.IsDevelopment())
 {
     mvcBuilder.AddRazorRuntimeCompilation();
+}
+
+// database
+if (builder.Environment.IsDevelopment())
+{
+    builder.Services.AddDbContext<AppDbContext>(options =>
+        options.UseSqlite("Data Source=app.db"));
+}
+else
+{
+    // TODO: add postgresql support for production
+    throw new NotImplementedException();
+}
+
+// media
+if (builder.Environment.IsDevelopment())
+{
+    builder.Services.AddScoped<IMediaService, DevelopmentMediaService>();
+}
+else
+{
+    builder.Services.AddScoped<IMediaService, CloudinaryMediaService>();
 }
 
 var app = builder.Build();

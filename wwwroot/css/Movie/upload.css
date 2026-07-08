@@ -1,0 +1,16 @@
+.container {
+    padding: 0.5rem;
+}
+
+.movie-upload-form {
+    width: 33.23rem;
+    
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+}
+
+.movie-upload-form > div {
+    display: flex;
+    flex-direction: column;
+}

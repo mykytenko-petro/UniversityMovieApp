@@ -1,0 +1,46 @@
+@model UniversityMovieApp.ViewModels.MovieUploadViewModel
+
+@{
+    ViewData["Title"] = "Upload Movie";
+}
+
+@section Styles{
+    <link rel="stylesheet" href="css/Movie/upload.css">
+}
+
+<div class="container">
+    <h1>Upload Movie</h1>
+
+    <form
+        asp-controller="Movie"
+        asp-action="Upload"
+        method="post"
+        enctype="multipart/form-data"
+        class="movie-upload-form"
+    >
+        @Html.AntiForgeryToken()
+
+        <div>
+            <label asp-for="OriginalName">Movie Title *</label>
+            <input asp-for="OriginalName" placeholder="Original movie title" />
+            <span asp-validation-for="OriginalName"></span>
+        </div>
+
+        <div>
+            <label asp-for="TranslatedName" class="form-label">Translated Title (Optional)</label>
+            <input asp-for="TranslatedName" class="form-control" placeholder="Title in another language" />
+            <span asp-validation-for="TranslatedName"></span>
+        </div>
+
+        <div>
+            <label asp-for="VideoFile">Video File *</label>
+            <input asp-for="VideoFile" type="file" accept="video/*" />
+            <span asp-validation-for="VideoFile"></span>
+            <small>Select a video file to upload</small>
+        </div>
+
+        <div>
+            <button type="submit">Upload Movie</button>
+        </div>
+    </form>
+</div>
