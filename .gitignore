@@ -6,8 +6,8 @@ obj/
 node_modules/
 package-lock.json
 
-# compiled typescript bundle
-wwwroot/js/
+# compiled vite bundle
+wwwroot/dist/
 
 # database
 *.db

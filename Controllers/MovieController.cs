@@ -14,7 +14,21 @@ public class MovieController(IMediaService mediaService, AppDbContext dbContext)
     [HttpGet("{id:int}")]
     public IActionResult Watch([FromRoute] int id)
     {
-        return View();
+        var movie = _dbContext.Movies.Find(id);
+
+        if (movie == null)
+        {
+            return Redirect("/");
+        }
+
+        ViewData["Title"] = movie.OriginalName;
+
+        return View(new MovieWatchViewModel
+        {
+            OriginalName = movie.OriginalName,
+            TranslatedName = movie.TranslatedName,
+            VideoUrl = _mediaService.GetUrl() + movie.VideoUrl
+        });
     }
 
     [HttpGet("upload")]

@@ -25,6 +25,11 @@ else
 }
 
 // media
+builder.WebHost.ConfigureKestrel(options =>
+{
+    options.Limits.MaxRequestBodySize = 5368709120; 
+});
+
 if (builder.Environment.IsDevelopment())
 {
     builder.Services.AddScoped<IMediaService, DevelopmentMediaService>();

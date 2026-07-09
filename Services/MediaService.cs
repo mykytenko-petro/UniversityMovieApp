@@ -3,11 +3,18 @@ namespace UniversityMovieApp.Services;
 public interface IMediaService
 {
     Task<string> UploadFile(IFormFile file);
+
+    string GetUrl();
 }
 
 public sealed class DevelopmentMediaService : IMediaService
 {
     private readonly string _targetFolder = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "media");
+
+    public string GetUrl()
+    {
+        return "media/";
+    }
 
     public async Task<string> UploadFile(IFormFile file)
     {
@@ -27,13 +34,18 @@ public sealed class DevelopmentMediaService : IMediaService
         using var stream = new FileStream(filePath, FileMode.Create);
         await file.CopyToAsync(stream);
 
-        return $"/media/{uniqueFileName}";
+        return $"{uniqueFileName}";
     }
 }
 
 // TODO: Add Cloudinary support
 public sealed class CloudinaryMediaService : IMediaService
 {
+    public string GetUrl()
+    {
+        throw new NotImplementedException();
+    }
+
     public Task<string> UploadFile(IFormFile file)
     {
         throw new NotImplementedException();

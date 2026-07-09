@@ -1,0 +1,21 @@
+@model UniversityMovieApp.ViewModels.MovieWatchViewModel
+
+@section Styles{
+    <link rel="stylesheet" href="css/Movie/watch.css">
+}
+
+<div class="container">
+    @if (Model.TranslatedName != null) {
+        <h1>@Model.TranslatedName</h1>
+        <h3>@Model.OriginalName</h3>
+    }
+    else {
+        <h1>@Model.OriginalName</h1>
+    }
+
+    <video
+        src="@Model.VideoUrl"
+        class="player"
+        controls
+    ></video>
+</div>
