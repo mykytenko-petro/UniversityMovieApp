@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using UniversityMovieApp.Models;
 using UniversityMovieApp.Services;
@@ -24,6 +25,23 @@ else
     throw new NotImplementedException();
 }
 
+// auth
+builder.Services.AddDefaultIdentity<IdentityUser>(options => {
+    
+    options.Password.RequireDigit = false;
+    options.Password.RequireLowercase = false;
+    options.Password.RequireUppercase = false;
+    options.Password.RequireNonAlphanumeric = false;
+    options.Password.RequiredLength = 1;
+    options.Password.RequiredUniqueChars = 0;
+})
+.AddEntityFrameworkStores<AppDbContext>();
+
+builder.Services.ConfigureApplicationCookie(options =>
+{
+    options.Cookie.SecurePolicy = CookieSecurePolicy.None; // Allows cookies over HTTP
+});
+
 // media
 builder.WebHost.ConfigureKestrel(options =>
 {
@@ -48,9 +66,9 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
-app.UseHttpsRedirection();
 app.UseRouting();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapStaticAssets();

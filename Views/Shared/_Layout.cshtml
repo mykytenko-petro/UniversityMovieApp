@@ -1,4 +1,5 @@
 ﻿<!DOCTYPE html>
+
 <html lang="en">
     <head>
         <meta charset="UTF-8">
@@ -14,14 +15,30 @@
         <link rel="stylesheet" href="css/Shared/base.css">
         <link rel="stylesheet" href="css/Shared/layout.css">
         <link rel="stylesheet" href="css/Shared/palette.css">
+        <link rel="stylesheet" href="css/Shared/modal-window.css">
+
+        <link rel="stylesheet" href="css/Auth/auth-modal.css">
         @RenderSection("Styles", required: false)
     </head>
     <body>
+        <partial name="AuthModal" />
+
         <main>
             <header>
                 <a href="/">
                     <img src="icons/logo.svg" class="logo">
                 </a>
+
+                @if (User.Identity?.IsAuthenticated ?? false)
+                {
+                    <form asp-controller="Auth" asp-action="Logout" method="post">
+                        <button type="submit">Logout</button>
+                    </form>
+                }
+                else
+                {
+                    <button id="auth-button">Register</button>
+                }
             </header>
 
             <div class="content">
