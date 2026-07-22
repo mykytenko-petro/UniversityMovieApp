@@ -11,15 +11,18 @@ const loginForm = document.getElementById("login-form") as HTMLFormElement;
 const registerForm = document.getElementById("register-form") as HTMLFormElement;
 
 // logic
-authButton.onclick = () => modal.showModal()
-closeModalButton.onclick = () => modal.close()
-
-loginBtn.addEventListener("click", () => {
-    loginForm.style.display = "block";
-    registerForm.style.display = "none";
-});
+authButton.onclick = () => modal.showModal();
+closeModalButton.onclick = () => modal.close();
 
 registerBtn.addEventListener("click", () => {
-    loginForm.style.display = "none";
-    registerForm.style.display = "block";
+    registerForm.hidden = false;
+    loginForm.hidden = true;
 });
+
+loginBtn.addEventListener("click", () => {
+    registerForm.hidden = true;
+    loginForm.hidden = false;
+});
+
+registerForm.hidden = false;
+loginForm.hidden = true;

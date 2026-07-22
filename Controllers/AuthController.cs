@@ -17,6 +17,9 @@ public class AuthController(
         if (!ModelState.IsValid || model.Register is null)
             return Redirect("/");
 
+        if (model.Register.Password != model.Register.ConfirmPassword)
+            return Redirect("/");
+
         var user = new IdentityUser {
             UserName = model.Register.Email,
             Email = model.Register.Email

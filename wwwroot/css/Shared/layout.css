@@ -45,11 +45,31 @@ header {
 
     padding: 1rem;
 
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
     background-color: var(--bg-surface-variant);
 }
 
 .logo {
-    height: 100%;
+    height: 2rem;
+}
+
+.auth-button {
+    padding: 0.5rem;
+
+    border-radius: 0.5rem;
+    border: 0;
+
+    background-color: var(--color-primary);
+
+    color: var(--text-on-primary);
+}
+
+.auth-button:hover {
+    background-color: var(--color-primary-hover);
 }
 
 /* footer */

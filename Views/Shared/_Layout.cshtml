@@ -32,12 +32,12 @@
                 @if (User.Identity?.IsAuthenticated ?? false)
                 {
                     <form asp-controller="Auth" asp-action="Logout" method="post">
-                        <button type="submit">Logout</button>
+                        <button type="submit" class="auth-button">Logout</button>
                     </form>
                 }
                 else
                 {
-                    <button id="auth-button">Register</button>
+                    <button id="auth-button" class="auth-button">Register</button>
                 }
             </header>
 

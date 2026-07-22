@@ -1,5 +1,7 @@
 <dialog class="modal-window auth-modal" id="auth-modal">
-    <button id="auth-modal-close">x</button>
+    <div class="exit-button-container">
+        <button id="auth-modal-close">X</button>
+    </div>
 
     <div>
         <button type="button" id="tab-login-btn">Login</button>
@@ -11,35 +13,48 @@
 
         <h3>Register</h3>
 
-        <div>
-            <label for="Register_Email">Email</label>
-            <input type="email" id="Register_Email" name="Register.Email" required />
-        </div>
-        <div>
-            <label for="Register_Password">Password</label>
-            <input type="password" id="Register_Password" name="Register.Password" required />
-        </div>
-        <div>
-            <label for="Register_ConfirmPassword">Confirm Password</label>
-            <input type="password" id="Register_ConfirmPassword" name="Register.ConfirmPassword" required />
-        </div>
+        <input 
+            type="email" 
+            name="Register.Email" 
+            placeholder="Email"
+            required 
+        />
+
+        <input 
+            type="password" 
+            name="Register.Password" 
+            placeholder="Password"
+            required 
+        />
+
+        <input 
+            type="password" 
+            name="Register.ConfirmPassword"
+            placeholder="Confirm Password"
+            required 
+        />
 
         <button type="submit">Sign Up</button>
     </form>
 
-    <form id="login-form" asp-controller="Auth" asp-action="Login" method="post" style="display: none;">
+    <form id="login-form" asp-controller="Auth" asp-action="Login" method="post">
         @Html.AntiForgeryToken()
 
         <h3>Login</h3>
 
-        <div>
-            <label for="Login_Email">Email</label>
-            <input type="email" id="Login_Email" name="Login.Email" required />
-        </div>
-        <div>
-            <label for="Login_Password">Password</label>
-            <input type="password" id="Login_Password" name="Login.Password" required />
-        </div>
+        <input 
+            type="email" 
+            name="Login.Email" 
+            placeholder="Email"
+            required 
+        />
+
+        <input 
+            type="password" 
+            name="Login.Password" 
+            placeholder="Password"
+            required 
+        />
 
         <button type="submit">Sign In</button>
     </form>
